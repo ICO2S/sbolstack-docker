@@ -1,0 +1,9 @@
+This Dockerfile builds an SBOL Stack image.
+
+Build with (replacing the version tag with whatever you need):
+docker build -t icos/sbolstack:2016-04-24 .
+
+Update - the stack currently won't work with 4.1.1. Use the 4.0.0 release instead:
+https://sourceforge.net/projects/sesame/files/Sesame%204/4.0.0/
+
+

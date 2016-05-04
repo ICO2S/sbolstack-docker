@@ -1,0 +1,28 @@
+To create this image, we first ran a copy of image: icos/sbolstack:2016-04-25b
+
+Run this to start the container, and the Web services that it contains. Also, mount the directory containing the components to add:
+docker run -p 9090:9090 -t -i -v /home/keith/dev/sbol-stack-docker/hello-world/components:/home/ubuntu/stuff keithf/sbolstack:2016-04-25b 
+
+Then run a shell inside the same container:
+docker exec -i -t <container_id> /bin/bash
+
+From within the shell, execute the following:
+
+cd /home/ubuntu/stuff
+curl -H "Content-Type:application/rdf+xml" -X POST -d @cello_TetR_exsDA_v2.sbol http://localhost:9090
+curl -H "Content-Type:application/rdf+xml" -X POST -d @Final.sbol http://localhost:9090
+
+
+curl http://localhost:9090/component/count
+
+The first two commands should add any components found within the sbol files.
+
+The final command should print out the value '29'.
+
+
+Then, tar up the database directory:
+
+cd /home/ubuntu
+tar czf aduna-29-components.tar.gz .aduna  
+cp aduna-29-components.tar.gz /home/ubuntu/stuff
+
