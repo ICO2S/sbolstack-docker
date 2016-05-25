@@ -1,5 +1,8 @@
 #!/bin/bash
 
-docker push keithf/sbolstack:2016-04-25
+source ./docker-version.sh
+
+echo "Pushing $IMAGE_NAME"
+docker push $IMAGE_NAME
 
 

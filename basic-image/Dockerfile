@@ -35,7 +35,7 @@ RUN chown -R ubuntu:ubuntu /opt/apache-tomcat-8.0.33
 # Note that --branch here actually refers to a tag (git weirdness...)
 # Finally, we delete the 'config' directory present in the Git repository 
 # so that we can sym-link it to a mount location
-RUN cd /opt && git clone https://github.com/ICO2S/sbolstack-api.git --depth 1 --branch v1.2.2
+RUN cd /opt && git clone https://github.com/ICO2S/sbolstack-api.git --depth 1 --branch v1.4.0
 RUN cd /opt/sbolstack-api && npm install && npm install -g forever \
 	&& chown -R ubuntu:ubuntu /opt/sbolstack-api \
 	&& mv /opt/sbolstack-api/config/default.json /opt/sbolstack-api/example-config.json \
